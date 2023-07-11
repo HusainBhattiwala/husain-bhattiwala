@@ -62,6 +62,8 @@ export default function Home() {
             w-6 h-6 absolute top-32 right-1 sm:top-0 sm:right-3 cursor-pointer transform transition ease-out delay-300 duration-500`}
               onMouseDown={handleMouseEnter}
               onMouseUp={handleMouseLeave}
+              onTouchStart={handleMouseEnter}
+              onTouchEnd={handleMouseLeave}
             >
               <path
                 strokeLinecap='round'
