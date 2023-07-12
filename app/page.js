@@ -8,13 +8,15 @@ import { useState } from "react";
 export default function Home() {
   const [addToFav, setAddToFav] = useState(false);
 
-  const handleMouseEnter = () => {
-    setAddToFav(true);
+  const handleClick = () => {
+    setAddToFav((prev) => !prev);
   };
 
-  const handleMouseLeave = () => {
-    setAddToFav(false);
-  };
+  const favourite =
+    "w-6 h-6 fill-red-500 absolute top-32 right-1 sm:top-0 sm:right-3 bg-red-500 scale-75";
+  const notFavourite =
+    "w-6 h-6 text-[#5b5a5a] absolute top-32 right-1 sm:top-0 sm:right-3 hover:scale-75";
+
   return (
     <Center>
       <div
@@ -30,7 +32,7 @@ export default function Home() {
             className='object-contain bg-center rounded-xl shadow-md'
           />
         </div>
-        <div className='flex flex-col justify-center items-center sm:items-start relative '>
+        <div className='flex flex-col justify-center items-center relative sm:items-start'>
           <h1 className='text-[#272626] text-[40px] font-bold'>
             Apple Airpods
           </h1>
@@ -41,9 +43,11 @@ export default function Home() {
 
           <div className='absolute top-1 right-2'>
             <p
-              className={`${addToFav ? "block" : "hidden"} 
-              absolute bottom-1 right-0 text-[12px] text-red-700 bg-red-300
-          p-1 rounded-lg transition ease-out delay-700 duration-1000 z-30 shadow-md`}
+              className={
+                addToFav
+                  ? "hidden text-[12px] bg-red-400 rounded-lg text-red-700 absolute bottom-2 p-1 right-0 sm:block"
+                  : "hidden"
+              }
             >
               Added!
             </p>
@@ -54,16 +58,12 @@ export default function Home() {
               viewBox='0 0 24 24'
               strokeWidth={1.5}
               stroke='currentColor'
-              className={`${
+              onClick={() => setAddToFav((prev) => !prev)}
+              className={
                 addToFav
-                  ? "fill-red-500 text-red-500 scale-110"
-                  : "text-[#5b5a5a]"
+                  ? "w-6 h-6 fill-red-500 -translate-y-1 text-red-500 absolute right-1 top-[125px] sm:right-3 sm:top-0 scale-105 transform transition ease-out delay-150 duration-200"
+                  : "w-6 h-6 right-1 absolute top-[120px] text-[#676666] sm:right-3 sm:top-0"
               }
-            w-6 h-6 absolute top-32 right-1 sm:top-0 sm:right-3 cursor-pointer transform transition ease-out delay-300 duration-500`}
-              onMouseDown={handleMouseEnter}
-              onMouseUp={handleMouseLeave}
-              onTouchStart={handleMouseEnter}
-              onTouchEnd={handleMouseLeave}
             >
               <path
                 strokeLinecap='round'
