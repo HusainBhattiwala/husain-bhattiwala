@@ -21,7 +21,7 @@ export default function Home() {
     <Center>
       <div
         className='grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-20 py-5 px-3
-       bg-[#f3f1f1] rounded-lg shadow-md relative '
+       bg-[#f3f1f1] rounded-xl shadow-md relative '
       >
         <div className='mx-auto'>
           <Image
